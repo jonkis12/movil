@@ -20,10 +20,21 @@
 <br>
   <ion-card>
     <ion-card-content>
-      <ion-item>
-        <ion-button (click)="ingresar()" class="circle-pic"> Ingresar </ion-button>
-        </ion-item>
+        <ion-item>
+          <ion-buttons class="circle-pic">
+            <ion-button [routerLink]="['/login']"> Login </ion-button>
+          </ion-buttons>
+          </ion-item>
     </ion-card-content>
   </ion-card>
 
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/registro']"> Registrarse </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
