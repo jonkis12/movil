@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Bienvenido
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large" class="circle-pic">Bienvenido</ion-title>
+    </ion-toolbar>
+    </ion-header>
+<br>
+          <ion-avatar class="circle-pic">
+            <img src="assets/img/ind_img3.jpeg" style="height: 120%; width: 200%;">
+          </ion-avatar>
+
+<br>
+  <ion-card>
+    <ion-card-content>
+        <ion-item>
+          <ion-buttons class="circle-pic">
+            <ion-button [routerLink]="['/login']"> Login </ion-button>
+          </ion-buttons>
+          </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/registro']"> Registrarse </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
