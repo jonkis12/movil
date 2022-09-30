@@ -24,7 +24,11 @@ const routes: Routes = [
   {
     path: 'taller',
     loadChildren: () => import('./taller/taller.module').then( (m) => m.TallerPageModule),
+  },  {
+    path: 'qr',
+    loadChildren: () => import('./qr/qr.module').then( m => m.QrPageModule)
   },
+
   
 ];
 
