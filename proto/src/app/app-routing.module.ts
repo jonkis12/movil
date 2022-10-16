@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'animacion',
     pathMatch: 'full',
   },
 {
@@ -24,9 +24,14 @@ const routes: Routes = [
   {
     path: 'taller',
     loadChildren: () => import('./taller/taller.module').then( (m) => m.TallerPageModule),
-  },  {
+  },
+  {
     path: 'qr',
     loadChildren: () => import('./qr/qr.module').then( m => m.QrPageModule)
+  },
+  {
+    path: 'animacion',
+    loadChildren: () => import('./animacion/animacion.module').then( m => m.AnimacionPageModule)
   },
 
   
