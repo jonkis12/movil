@@ -3,21 +3,39 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Taller</ion-title>
+    <ion-title>QR Scanner</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <ion-button expand="full" (click)="startScan()">
+    <ion-icon slot="start" name="qr-scanner"></ion-icon>
+    SCANEAR QR
+  </ion-button>
 
-    <ion-item>
-      <img src="assets/img/adobe_express.png" style="height: 100%; width: 100%;" class="circle-pic">
-    </ion-item>
-    <ion-item>
-      
-    </ion-item>
+  <ion-button expand="full" (click)="reset()" color="warning" *ngIf="scanResult">
+    <ion-icon slot="start" name="refresh"></ion-icon>
+    REINTENTAR
+  </ion-button>
+
+  <video #video [hidden]="!scanActive" width="80%"> </video>
+  <canvas #canvas hidden></canvas>
+
+  <ion-button expand="full" (click)="stopScan()" color="dangerg" *ngIf="scanActive">
+    <ion-icon slot="start" name="close"></ion-icon>
+    CANCELAR
+  </ion-button>
+  
+  <ion-card *ngIf="scanResult">
+    <ion-card-header>
+      <ion-card-title>Resultado: </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{ scanResult }}
+    </ion-card-content>
   </ion-card>
 </ion-content>
+
 
 <ion-footer>
   <ion-toolbar>
