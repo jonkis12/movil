@@ -1,8 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { DbService } from './../services/db.service';
 import { ToastController } from '@ionic/angular';
 import { Router } from "@angular/router";
+
+import { StorageService } from '../storage.service';
+import  { Platform, IonList } from '@ionic/angular';
+
+import { CrudService } from '../services/crud.service';
 @Component({
   selector: 'app-historial',
   templateUrl: './historial.page.html',
@@ -10,45 +15,17 @@ import { Router } from "@angular/router";
 })
 export class HistorialPage implements OnInit {
 
-  mainForm: FormGroup;
-  Data: any[] = []
 
-  constructor(
-    private db: DbService,
-    public formBuilder: FormBuilder,
-    private toast: ToastController,
-    private router: Router
+  constructor(private crud: CrudService
   ) { }
   
-  ngOnInit() {
-    this.db.dbState().subscribe((res) => {
-      if(res){
-        this.db.fetchScaneos().subscribe(item => {
-          this.Data = item
-        })
-      }
-    });
-    this.mainForm = this.formBuilder.group({
-      datos: [''],
-      fecha: ['']
-    })
-  }
-  storeData() {
-    this.db.addScaneo(
-      this.mainForm.value.artist,
-      this.mainForm.value.song
-    ).then((res) => {
-      this.mainForm.reset();
-    })
-  }
-  deleteSong(id){
-    this.db.deleteScaneo(id).then(async(res) => {
-      let toast = await this.toast.create({
-        message: 'Scaneo deleted',
-        duration: 2500
-      });
-      toast.present();      
-    })
-  }
-   
+  async agregar(txtID:HTMLInputElement, txtLink:HTMLInputElement, txtFecha:HTMLInputElement)
+  {
+    const datos = [{"ID": txtID.value,
+                    "Link": txtLink.value,
+                    "Fecha": txtFecha.value}];
+                    await this.crud.agregar(datos);
+  };
+  ngOnInit() {} 
+
 }
