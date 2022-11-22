@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Historial</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+  </ion-list>
+    <ion-list>
+    <ion-list-header>
+      Scaneos
+    </ion-list-header>
+    <ion-item lines="inset" *ngFor="let data of Data">
+      <ion-label>
+        <h5>{{data.id}}</h5>
+        <p>{{data.datos}}</p>
+        <p>{{data.fecha}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

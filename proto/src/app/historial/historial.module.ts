@@ -4,9 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { QrPageRoutingModule } from './qr-routing.module';
+import { HistorialPageRoutingModule } from './historial-routing.module';
 
-import { QrPage } from './qr.page';
+import { HistorialPage } from './historial.page';
 
 @NgModule({
   imports: [
@@ -14,8 +14,10 @@ import { QrPage } from './qr.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    QrPageRoutingModule
+    HistorialPageRoutingModule
   ],
-  declarations: [QrPage]
+  declarations: [HistorialPage]
 })
-export class QrPageModule {}
+
+
+export class HistorialPageModule {}

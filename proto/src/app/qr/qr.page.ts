@@ -3,6 +3,12 @@ import { ViewChild, ElementRef } from '@angular/core';
 import { ToastController, LoadingController, Platform } from '@ionic/angular';
 import jsQR from 'jsqr';
 
+//BDD
+import { FormGroup, FormBuilder } from "@angular/forms";
+
+//import { DbService } from './../services/db.service';
+import { Router } from "@angular/router";
+
 @Component({
   selector: 'app-qr',
   templateUrl: './qr.page.html',

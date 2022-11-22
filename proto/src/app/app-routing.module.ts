@@ -33,6 +33,10 @@ const routes: Routes = [
     path: 'animacion',
     loadChildren: () => import('./animacion/animacion.module').then( m => m.AnimacionPageModule)
   },
+  {
+    path: 'historial',
+    loadChildren: () => import('./historial/historial.module').then( m => m.HistorialPageModule)
+  },
 
   
 ];
