@@ -99,9 +99,9 @@ export class QrPage implements OnInit {
       if (code) {
         this.scanActive = false;
         this.scanResult = code.data;
-        let num = this.getRandomInt(0,9999);
+        let num = (await this.getRandomInt(0,9999)).toString();
         let fecha = 'Noviembre 23';
-        this.agregar(num.toString(), this.scanResult, fecha);
+        this.agregar(num, this.scanResult, fecha);
         this.showQrToast();
       } else {
         if (this.scanActive){
