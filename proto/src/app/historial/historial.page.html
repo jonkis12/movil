@@ -27,9 +27,14 @@
   <ion-input type="text" placeholder="123" #txtFecha></ion-input>
 </ion-item>
 
-<ion-item>
-
-</ion-item>
+<ion-list>
+  <ion-item lines="inset" *ngFor="let dato of datoss">
+    <ion-label>
+      <h5>{{ dato.Fecha }}</h5>
+      <p>{{ dato.values.Link }} + {{ dato.ID }}</p>
+    </ion-label>
+  </ion-item>
+</ion-list>
 
 </ion-content>
 

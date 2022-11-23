@@ -9,6 +9,8 @@ import { FormGroup, FormBuilder } from "@angular/forms";
 //import { DbService } from './../services/db.service';
 import { Router } from "@angular/router";
 
+import { CrudService } from '../services/crud.service';
+
 @Component({
   selector: 'app-qr',
   templateUrl: './qr.page.html',
@@ -27,7 +29,17 @@ export class QrPage implements OnInit {
 
   loading: HTMLIonLoadingElement;
 
-  constructor(private toastCtrl: ToastController, private loadingCtrl:LoadingController) { }
+  constructor(private toastCtrl: ToastController, private loadingCtrl:LoadingController, private crud:CrudService) { }
+
+  async agregar(txtID:string, txtLink:string, txtFecha:string)
+  {
+    const datos = [{"ID": txtID,
+                    "Link": txtLink,
+                    "Fecha": txtFecha}];
+                    await this.crud.agregar(datos);
+  };
+  
+
 
   ngAfterViewInit(){
     this.videoElement = this.video.nativeElement;
@@ -87,6 +99,9 @@ export class QrPage implements OnInit {
       if (code) {
         this.scanActive = false;
         this.scanResult = code.data;
+        let num = this.getRandomInt(0,9999);
+        let fecha = 'Noviembre 23';
+        this.agregar(num.toString(), this.scanResult, fecha);
         this.showQrToast();
       } else {
         if (this.scanActive){
@@ -120,4 +135,10 @@ export class QrPage implements OnInit {
     });
     toast.present();
   }
+  async getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+  }
 }
+

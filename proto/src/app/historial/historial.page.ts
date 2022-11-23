@@ -14,6 +14,8 @@ import { CrudService } from '../services/crud.service';
   styleUrls: ['./historial.page.scss'],
 })
 export class HistorialPage implements OnInit {
+  
+  datoss = this.crud.listar();
 
 
   constructor(private crud: CrudService
